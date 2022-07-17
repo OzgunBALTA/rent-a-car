@@ -1,12 +1,18 @@
 <table class="table">
     <thead>
         <tr>
-            <td>Marka ID</td>
             <td>Marka Adı</td>
         </tr>
     </thead>
-    <tr *ngFor="let brand of brands">
-        <td>{{brand.id}}</td>
+    <tr routerLink="/Cars"
+        (click)="setDeletedCurrentBrand()"
+        [class]="getAllBrandClass()">
+        <td>Tüm Arabalar</td>
+    </tr>
+    <tr *ngFor="let brand of brands"
+        routerLink="/Cars/Brand/{{brand.id}}"
+        (click)="setCurrentBrand(brand)"
+        [class]="setCurrentBrandClass(brand)">
         <td>{{brand.brandName}}</td>
     </tr>
 </table>

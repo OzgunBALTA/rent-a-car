@@ -1,12 +1,18 @@
 <table class="table">
     <thead>
         <tr>
-            <td>Renk ID</td>
             <td>Renk Adı</td>
         </tr>
     </thead>
-    <tr *ngFor="let color of colors">
-        <td>{{color.id}}</td>
+    <tr routherLink="/Cars"
+        (click)="setDeletedCurrentColor()"
+        [class]="getAllColorClass()">
+        <td>Tüm Renkler</td>
+    </tr>
+    <tr *ngFor="let color of colors"
+        routerLink="/Cars/Color/{{color.id}}"
+        (click)="setCurrentColor(color)"
+        [class]="setCurrentColorClass(color)">
         <td>{{color.colorName}}</td>
     </tr>
 </table>
